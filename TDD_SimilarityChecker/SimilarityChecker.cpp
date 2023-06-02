@@ -6,6 +6,6 @@ class SimilarityChecker
 public:
 	int GetCompareResult(const string& stringA, const string& stringB)
 	{
-		return 60;
+		return (1 - (stringA.length() - stringB.length()) / stringB.length()) * 60;
 	}
 };
