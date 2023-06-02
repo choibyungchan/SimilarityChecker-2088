@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#define MAX_LEGNTH_SCORE 60
 
 using namespace std;
 
@@ -22,7 +23,7 @@ public:
 
 	int GetLengthScore(Length st_length)
 	{
-		int result = (1.0 - ((double)(st_length.longlength - st_length.shortlength) / st_length.shortlength)) * 60;
+		int result = (1.0 - ((double)(st_length.longlength - st_length.shortlength) / st_length.shortlength)) * MAX_LEGNTH_SCORE;
 		if (result < 0) return 0;
 		return result;
 	}
