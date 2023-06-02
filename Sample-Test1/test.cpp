@@ -17,3 +17,11 @@ TEST(SimilarityTC, CompareDoubleGapLength) {
 	int score = 0;
 	EXPECT_EQ(score, SimilarityChecker().GetCompareResult(A, B));
 }
+
+TEST(SimilarityTC, CompareBisLongLength) {
+	string A = "HHH";
+	string B = "ABCDFG";
+
+	int score = 0;
+	EXPECT_EQ(score, SimilarityChecker().GetCompareResult(A, B));
+}
