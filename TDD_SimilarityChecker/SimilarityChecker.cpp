@@ -34,8 +34,17 @@ public:
 		return st_length;
 	}
 
+	int GetAlphaScore(const string& stringA, const string& stringB)
+	{
+		if (stringA == stringB)
+		{
+			return 40;
+		}
+		return 0;
+	}
+
 	int GetCompareResult(const string& stringA, const string& stringB)
 	{
-		return GetLengthScore(GetLengthStruct(stringA.length(), stringB.length()));
+		return GetLengthScore(GetLengthStruct(stringA.length(), stringB.length())) + GetAlphaScore(stringA, stringB);
 	}
 };

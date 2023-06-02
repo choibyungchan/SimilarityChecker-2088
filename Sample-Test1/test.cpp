@@ -40,3 +40,12 @@ TEST(SimilarityTC, CompareTripeGapLength) {
 	int score = 0;
 	EXPECT_EQ(score, SimilarityChecker().GetCompareResult(A, B));
 }
+
+
+TEST(SimilarityTC, CompareSameAlpha) {
+	string A = "ABC";
+	string B = "ABC";
+
+	int score = 100;
+	EXPECT_EQ(score, SimilarityChecker().GetCompareResult(A, B));
+}
