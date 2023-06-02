@@ -38,22 +38,8 @@ public:
 		return st_length;
 	}
 
-	int GetAlphaScore(const string& stringA, const string& stringB)
+	void remove_duplicate(const string& stringA, vector<char>& totalalpha)
 	{
-		double samechar = 0;
-		for(char ch1 :stringA)
-		{
-			for (char ch2 : stringB)
-			{
-				if (ch1 == ch2) {
-					samechar++;
-					break;
-				}
-			}
-		}
-		
-		vector<char> totalalpha = {};
-
 		for (char ch : stringA)
 		{
 			bool flag = true;
@@ -67,23 +53,35 @@ public:
 			if (!flag) continue;
 			totalalpha.push_back(ch);
 		}
-		for (char ch : stringB)
+	}
+
+	int GetAlphaScore(const string& stringA, const string& stringB)
+	{
+		vector<char> totalalpha = {};
+
+		remove_duplicate(stringA, totalalpha);
+		remove_duplicate(stringB, totalalpha);
+		
+		vector<char> samealpha = {};
+		for(char ch1 :stringA)
 		{
-			bool flag = true;
-			for (char compare : totalalpha)
+			for (char ch2 : stringB)
 			{
-				if (ch == compare)
-				{
-					flag = false;
+				if (ch1 == ch2) {
+					bool flag = true;
+					for(char ch3: samealpha)
+					{
+						if (ch3 == ch1)
+							flag = false;
+					}
+					if (!flag) break;
+					samealpha.push_back(ch1);
+					break;
 				}
 			}
-			if (!flag) continue;
-			totalalpha.push_back(ch);
 		}
 
-		if (totalalpha.size() == 0) return 0;
-		
-		 return (samechar/totalalpha.size())*40;
+		 return ((double)samealpha.size()/totalalpha.size())*40;
 	}
 
 	int GetCompareResult(const string& stringA, const string& stringB)
