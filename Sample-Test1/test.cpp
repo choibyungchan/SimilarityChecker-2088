@@ -25,3 +25,11 @@ TEST(SimilarityTC, CompareBisLongLength) {
 	int score = 0;
 	EXPECT_EQ(score, SimilarityChecker().GetCompareResult(A, B));
 }
+
+TEST(SimilarityTC, ComparesimilarLength) {
+	string A = "HHHG";
+	string B = "ABCDFU";
+
+	int score = 30;
+	EXPECT_EQ(score, SimilarityChecker().GetCompareResult(A, B));
+}
