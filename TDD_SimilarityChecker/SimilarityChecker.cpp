@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #define MAX_LEGNTH_SCORE 60
+#define MAX_ALPHA_SCORE 40
 
 using namespace std;
 
@@ -9,9 +10,6 @@ struct Length
 	int longlength;
 	int shortlength;
 };
-
-
-
 
 class SimilarityChecker
 {
@@ -59,7 +57,7 @@ public:
 
 		vector<char> totalalpha = remove_duplicate(stringA, stringB);
 
-		return ((double)samealpha.size()/totalalpha.size())*40;
+		return ((double)samealpha.size() / totalalpha.size()) * MAX_ALPHA_SCORE;
 	}
 
 	void RemovesameAlpha(vector<char>& samealpha, char ch1)
