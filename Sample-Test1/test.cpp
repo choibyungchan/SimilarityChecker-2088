@@ -1,7 +1,11 @@
 #include "pch.h"
 #include"../TDD_SimilarityChecker/SimilarityChecker.cpp"
 
-TEST(TestCaseName, TestName) {
-  EXPECT_EQ(1, 1);
-  EXPECT_TRUE(true);
+
+TEST(SimilarityTC, CompareSameLength) {
+	string A = "ABC";
+	string B = "HHH";
+
+	int score = 60;
+	EXPECT_EQ(score, SimilarityChecker().GetCompareResult(A,B));
 }
