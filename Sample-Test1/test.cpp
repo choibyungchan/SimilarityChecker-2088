@@ -1,7 +1,6 @@
 #include "pch.h"
 #include"../TDD_SimilarityChecker/SimilarityChecker.cpp"
 
-
 TEST(SimilarityTC, CompareSameLength) {
 	string A = "ABC";
 	string B = "HHH";
@@ -21,6 +20,22 @@ TEST(SimilarityTC, CompareDoubleGapLength) {
 TEST(SimilarityTC, CompareBisLongLength) {
 	string A = "HHH";
 	string B = "ABCDFG";
+
+	int score = 0;
+	EXPECT_EQ(score, SimilarityChecker().GetCompareResult(A, B));
+}
+
+TEST(SimilarityTC, ComparesimilarLength) {
+	string A = "HHHG";
+	string B = "ABCDFU";
+
+	int score = 30;
+	EXPECT_EQ(score, SimilarityChecker().GetCompareResult(A, B));
+}
+
+TEST(SimilarityTC, CompareTripeGapLength) {
+	string A = "HHH";
+	string B = "ABCDFGGGG";
 
 	int score = 0;
 	EXPECT_EQ(score, SimilarityChecker().GetCompareResult(A, B));
