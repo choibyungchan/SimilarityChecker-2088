@@ -49,3 +49,12 @@ TEST(SimilarityTC, CompareSameAlpha) {
 	int score = 100;
 	EXPECT_EQ(score, SimilarityChecker().GetCompareResult(A, B));
 }
+
+
+TEST(SimilarityTC, CompareAlphaCase1) {
+	string A = "ABCD";
+	string B = "ABHH";
+
+	int score = 76;
+	EXPECT_EQ(score, SimilarityChecker().GetCompareResult(A, B));
+}
